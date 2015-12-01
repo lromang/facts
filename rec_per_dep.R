@@ -48,7 +48,7 @@ for(i in 1:length(slugs)){
     operations <- "Rutina de R"
     columns    <- NA
     fact       <- paste0(dep$N, " Es el número de bases de datos que la dependencia ",
-                        dep$organization, " ha publicado. ")
+                        organization, " ha publicado. ")
     new_data   <- data.frame(organization = organization,
                             slug = slug,
                             dataset = dataset,
