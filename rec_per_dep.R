@@ -1,6 +1,7 @@
 library(data.table)
 library(plyr)
 library(dplyr)
+library(stringr)
 ##---------------------------
 ## Lectura de datos
 facts <- read.csv("facts.csv", stringsAsFactors = FALSE)
@@ -60,7 +61,8 @@ for(i in 1:length(slugs)){
     facts      <- rbind(facts, new_data)
 }
 
-
+facts$dataset_url <- paste0("busca.datos.gob.mx/#/conjuntos/",
+                           tolower(str_replace_all(facts$dataset," ","-")))
 
 
 write.csv(facts, "facts_datos_gob_mx.csv", row.names = FALSE)
