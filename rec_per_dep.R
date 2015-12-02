@@ -72,7 +72,7 @@ id_conj <- str_replace_all(id_conj,"ó","o")
 id_conj <- str_replace_all(id_conj,"ú","u")
 id_conj <- str_replace_all(id_conj,"ñ","n")
 id_conj <- str_replace_all(id_conj,"datosgobmx","datos-gob-mx")
-id_conj <- str_replace_all(id_conj,"sa-de-cv","s-a-de-cv")
+id_conj <- str_replace_all(id_conj,"sa-de-cv","s-a-de-c-v")
 con_url     <- dataset_url <- paste0("http://busca.datos.gob.mx/#/conjuntos/",id_conj)
 for(i in 1:nrow(facts)){
     if(is.na(facts$url[i])){
