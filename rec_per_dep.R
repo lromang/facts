@@ -69,7 +69,7 @@ id_conj <- str_replace_all(id_conj,"é","e")
 id_conj <- str_replace_all(id_conj,"í","i")
 id_conj <- str_replace_all(id_conj,"ó","o")
 id_conj <- str_replace_all(id_conj,"ú","u")
-con_url     <- dataset_url <- paste0("busca.datos.gob.mx/#/conjuntos/",id_conj)
+con_url     <- dataset_url <- paste0("https://busca.datos.gob.mx/#/conjuntos/",id_conj)
 for(i in 1:nrow(facts)){
     if(is.na(facts$url[i])){
         facts$url[i] <- con_url[i]
