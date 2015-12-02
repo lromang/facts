@@ -61,8 +61,13 @@ for(i in 1:length(slugs)){
     facts      <- rbind(facts, new_data)
 }
 
-facts$dataset_url <- paste0("busca.datos.gob.mx/#/conjuntos/",
-                           tolower(str_replace_all(facts$dataset," ","-")))
 
+id_conj <- tolower(str_replace_all(facts$dataset," ","-"))
+id_conj <- str_replace_all(id_conj,"á","a")
+id_conj <- str_replace_all(id_conj,"é","e")
+id_conj <- str_replace_all(id_conj,"í","i")
+id_conj <- str_replace_all(id_conj,"ó","o")
+id_conj <- str_replace_all(id_conj,"ú","u")
+facts$dataset_url <- paste0("busca.datos.gob.mx/#/conjuntos/",id_conj)
 
 write.csv(facts, "facts_datos_gob_mx.csv", row.names = FALSE)
