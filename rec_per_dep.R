@@ -25,7 +25,7 @@ ad_fact <- data.frame(organization = "PRESIDENCIA",
                      slug = "presidencia",
                      dataset = "Número de dependencias publicando",
                      resource = "Número de dependencias publicando",
-                     url = "https://busca.datos.gob.mx/#/instituciones/presidencia",
+                     url = "http://busca.datos.gob.mx/#/instituciones/presidencia",
                      operations = "Rutina de R",
                      columns = NA,
                      fact = paste0(public_dep,
@@ -46,7 +46,7 @@ for(i in 1:length(slugs)){
     slug     <- dep$slug
     dataset  <- "Número de bases de datos"
     resource <- dataset
-    url      <- paste0("https://busca.datos.gob.mx/#/instituciones/", slug)
+    url      <- paste0("http://busca.datos.gob.mx/#/instituciones/", slug)
     operations <- "Rutina de R"
     columns    <- NA
     fact       <- paste0(dep$N, " Es el número de bases de datos que la dependencia ",
