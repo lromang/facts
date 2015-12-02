@@ -9,6 +9,7 @@ facts <- read.csv("facts.csv", stringsAsFactors = FALSE)
 facts <- facts[,-8]
 facts$slug <- tolower(facts$organization)
 facts <- facts[,c(1,8,2,3,4,5,6,7)]
+facts$url <- rep(NA, nrow(facts))
 
 ##
 data <- read.csv("MAT.csv", stringsAsFactors = FALSE)
@@ -24,7 +25,7 @@ ad_fact <- data.frame(organization = "PRESIDENCIA",
                      slug = "presidencia",
                      dataset = "Número de dependencias publicando",
                      resource = "Número de dependencias publicando",
-                     url = NA,
+                     url = "https://busca.datos.gob.mx/#/instituciones/presidencia",
                      operations = "Rutina de R",
                      columns = NA,
                      fact = paste0(public_dep,
@@ -45,7 +46,7 @@ for(i in 1:length(slugs)){
     slug     <- dep$slug
     dataset  <- "Número de bases de datos"
     resource <- dataset
-    url      <- NA
+    url      <- paste0("https://busca.datos.gob.mx/#/instituciones/", slug)
     operations <- "Rutina de R"
     columns    <- NA
     fact       <- paste0(dep$N, " Es el número de bases de datos que la dependencia ",
@@ -68,6 +69,11 @@ id_conj <- str_replace_all(id_conj,"é","e")
 id_conj <- str_replace_all(id_conj,"í","i")
 id_conj <- str_replace_all(id_conj,"ó","o")
 id_conj <- str_replace_all(id_conj,"ú","u")
-facts$dataset_url <- paste0("busca.datos.gob.mx/#/conjuntos/",id_conj)
+con_url     <- dataset_url <- paste0("busca.datos.gob.mx/#/conjuntos/",id_conj)
+for(i in 1:nrow(facts)){
+    if(is.na(facts$url[i])){
+        facts$url[i] <- con_url[i]
+    }
+}
 
 write.csv(facts, "facts_datos_gob_mx.csv", row.names = FALSE)
