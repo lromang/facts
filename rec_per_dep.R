@@ -63,7 +63,8 @@ for(i in 1:length(slugs)){
 }
 
 
-id_conj <- tolower(str_replace_all(facts$dataset," ","-"))
+id_conj <- str_replace_all(facts$dataset,"[[:punct:]]","")
+id_conj <- tolower(str_replace_all(id_conj," ","-"))
 id_conj <- str_replace_all(id_conj,"á","a")
 id_conj <- str_replace_all(id_conj,"é","e")
 id_conj <- str_replace_all(id_conj,"í","i")
