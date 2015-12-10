@@ -5,8 +5,9 @@ library(stringr)
 ##---------------------------
 ## Lectura de datos
 facts <- read.csv("facts.csv", stringsAsFactors = FALSE)
+
 ## Estructuración de datos
-facts <- facts[,-8]
+##facts <- facts[,-8]
 facts$slug <- tolower(facts$organization)
 facts <- facts[,c(1,8,2,3,4,5,6,7)]
 facts$url <- rep(NA, nrow(facts))
@@ -15,6 +16,7 @@ facts$url <- rep(NA, nrow(facts))
 data <- read.csv("MAT.csv", stringsAsFactors = FALSE)
 data <- dplyr::filter(data, dep != "grupos")
 data <- data.table(data)
+
 
 ## Conteo de recursos por dependencia
 rec_per_dep <- data[,.N, by = slug]
@@ -43,15 +45,15 @@ for(i in 1:length(slugs)){
     ## Crear matriz
     organization <- subset(facts, select = "organization",
                           slug == slugs[i])[1,1]
-    slug     <- dep$slug
-    dataset  <- "Número de bases de datos"
-    resource <- dataset
-    url      <- paste0("http://busca.datos.gob.mx/#/instituciones/", slug)
-    operations <- "Rutina de R"
-    columns    <- NA
-    fact       <- paste0(dep$N, " Es el número de bases de datos que la dependencia ",
+    slug         <- dep$slug
+    dataset      <- "Número de bases de datos"
+    resource     <- dataset
+    url          <- paste0("http://busca.datos.gob.mx/#/instituciones/", slug)
+    operations   <- "Rutina de R"
+    columns      <- NA
+    fact         <- paste0(dep$N, " Es el número de bases de datos que la dependencia ",
                         organization, " ha publicado. ")
-    new_data   <- data.frame(organization = organization,
+    new_data     <- data.frame(organization = organization,
                             slug = slug,
                             dataset = dataset,
                             resource = resource,
@@ -59,7 +61,7 @@ for(i in 1:length(slugs)){
                             operations = operations,
                             columns = columns,
                             fact = fact)
-    facts      <- rbind(facts, new_data)
+    facts        <- rbind(facts, new_data)
 }
 
 
@@ -73,9 +75,16 @@ id_conj <- str_replace_all(id_conj,"ú","u")
 id_conj <- str_replace_all(id_conj,"ñ","n")
 id_conj <- str_replace_all(id_conj,"datosgobmx","datos-gob-mx")
 id_conj <- str_replace_all(id_conj,"sa-de-cv","s-a-de-c-v")
+
 con_url     <- dataset_url <- paste0("http://busca.datos.gob.mx/#/conjuntos/",id_conj)
+
+## con_url     <- dataset_url <- paste0("http://busca.datos.gob.mx/#/conjuntos/", data$id_conj)
+## new_urls <- data.frame(conj = data$conj, url = con_url)
+
 for(i in 1:nrow(facts)){
     if(is.na(facts$url[i])){
+       ## conj_selec   <- facts$dataset[i]
+       ## urls         <- dplyr::filter(new_urls, conj == conj_selec)
         facts$url[i] <- con_url[i]
     }
 }
