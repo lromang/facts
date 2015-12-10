@@ -1,5 +1,5 @@
 organization,dataset,resource,url,operations,columns,fact
-CDI,localidades indígneas,Localidades indigenas 2010,http://www.cdi.gob.mx/datosabiertos/2010/locali-indi-2010.csv,Procedimiento en Bash,"B,K","En 2010 la población indígena total registrada en el territorio mexicano es de 11,132,562 de individuos."
+CDI,localidades indígenas,Localidades indigenas 2010,http://www.cdi.gob.mx/datosabiertos/2010/locali-indi-2010.csv,Procedimiento en Bash,"B,K","En 2010 la población indígena total registrada en el territorio mexicano es de 11,132,562 de individuos."
 CDI,localidades indígenas,Localidades indigenas 2010,http://www.cdi.gob.mx/datosabiertos/2010/locali-indi-2010.csv,Procedimiento en Bash,"B,K","En 2010 el estado con mayor población indígena fue Oaxaca con 5,158,392 de individuos."
 CDI,Distribución de los pueblos indígenas por entidad federativa,"Pueblos indígenas por estado, 2010",http://www.cdi.gob.mx/datosabiertos/2010/pueb-indi-edo-2010.csv,Procedimiento en Bash,"A,C","En 2010 el pueblo indígena con mayor población a nivel nacional es Náhuatl con 2,587,452 individuos."
 CDI,Distribución de los pueblos indígenas por entidad federativa,"Pueblos indígenas por estado, 2010",http://www.cdi.gob.mx/datosabiertos/2010/pueb-indi-edo-2010.csv,Procedimiento en Bash,"A,C",En 2010 el pueblo indígena con menor población a nivel nacional es Ayapaneco con 57 individuos
