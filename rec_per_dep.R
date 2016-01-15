@@ -4,6 +4,7 @@ library(dplyr)
 library(stringr)
 ##---------------------------
 ## Lectura de datos
+
 facts <- read.csv("facts.csv", stringsAsFactors = FALSE)
 
 ## Estructuración de datos
