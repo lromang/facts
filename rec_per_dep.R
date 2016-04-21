@@ -28,7 +28,7 @@ ad_fact <- data.frame(organization = "PRESIDENCIA",
                      slug = "presidencia",
                      dataset = "Número de dependencias publicando",
                      resource = "Número de dependencias publicando",
-                     url = "http://busca.datos.gob.mx/#/instituciones/presidencia",
+                     url = "http://busca.datos.gob.mx/#!/instituciones/presidencia",
                      operations = "Rutina de R",
                      columns = NA,
                      fact = paste0(public_dep,
@@ -49,7 +49,7 @@ for(i in 1:length(slugs)){
     slug         <- dep$slug
     dataset      <- "Número de bases de datos"
     resource     <- dataset
-    url          <- paste0("http://busca.datos.gob.mx/#/instituciones/", slug)
+    url          <- paste0("http://busca.datos.gob.mx/#!/instituciones/", slug)
     operations   <- "Rutina de R"
     columns      <- NA
     fact         <- paste0(dep$N, " Es el número de bases de datos que la dependencia ",
@@ -77,9 +77,9 @@ id_conj <- str_replace_all(id_conj,"ñ","n")
 id_conj <- str_replace_all(id_conj,"datosgobmx","datos-gob-mx")
 id_conj <- str_replace_all(id_conj,"sa-de-cv","s-a-de-c-v")
 
-con_url     <- dataset_url <- paste0("http://busca.datos.gob.mx/#/conjuntos/",id_conj)
+con_url     <- dataset_url <- paste0("http://busca.datos.gob.mx/#!/conjuntos/",id_conj)
 
-## con_url     <- dataset_url <- paste0("http://busca.datos.gob.mx/#/conjuntos/", data$id_conj)
+## con_url     <- dataset_url <- paste0("http://busca.datos.gob.mx/#!/conjuntos/", data$id_conj)
 ## new_urls <- data.frame(conj = data$conj, url = con_url)
 
 for(i in 1:nrow(facts)){
